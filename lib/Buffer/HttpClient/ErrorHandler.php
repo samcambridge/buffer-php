@@ -37,6 +37,8 @@ class ErrorHandler
             if ($response->isContentType('json') && is_array($body)) {
                 if (isset($body['error'])) {
                     $message = $body['error'];
+                } else if (isset($body['message'])) {
+                    $message = $body['message'];
                 } else {
                     $message = 'Unable to select error message from json returned by request responsible for error';
                 }
