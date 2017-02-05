@@ -44,6 +44,7 @@ class HttpClient
         }
 
         $client = new GuzzleClient($this->options['base'], $this->options);
+        $client->setDefaultOption('verify', 'home/forge/app.quuu.co/current/vendor/guzzle/guzzle/src/Guzzle/Http/Resources/cacert.pem');
         $this->client = $client;
 
         $listener = array(new ErrorHandler(), 'onRequestError');
